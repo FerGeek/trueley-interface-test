@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trueley</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/engine.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript">
+      const clickSound = new Audio('js/baloon_popup.mp3');
+      // clickSound.preload('auto');
+      var notifSound = new Audio('js/slow-spring-board.ogg');
+      $('document').ready(function(){
+        let config;
+        //config_ini
+        $('.li').makeMenu({
+          classIdent:'main_box',
+          defaultIndex:0,
+          OnClick:function(e){
+            clickSound.play();
+          }
+        });
+        $('.NavTab li').makeMenu({defaultIndex:0});
+        $('div.main_box').each(function(){
+          switch($(this).attr('name')){
+            // case 'desk':
+            //  config = {
+            //    animationName:'smooth_',
+            //    animationTime: 0.6,
+            //    animationFunctionTime:'cubic-bezier(0,.65,.22,1)',
+            //    // animationFunctionTime:'linear',
+            //    iterationProp : 1/5
+            //  };
+            //  break;
+            default:
+             config = {
+               animationName:'popup',
+               animationTime: 0.3,
+               iterationProp: 1/9,
+               animationFunctionTime:'cubic-bezier(0,.65,.22,1)'
+             };
+             break;
+          }
+          $(this).children().animateplay(config);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop" style="background-image: url('img/wave-top.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle" style="background-image: url('img/wave-mid.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom" style="background-image: url('img/wave-bot.png')"></div>
+      </div>
+    </div>
+    <nav class="right-menu">
+      <div class="logo">&nbsp;</div>
+      <ul>
+        <li class="li desk" link="desk"><span><i></i><p>Escritorio</p></span></li>
+        <li class="li exp" link="exp"><span><i></i><p>Expedientes</p></span></li>
+        <li class="li clients" link="clients"><span><i></i><p>Clientes</p></span></li>
+        <li class="li guiaut" link="guiaut"><span><i></i><p>Autoridates</p></span></li>
+        <li class="li honorarios" link="honorarios"><span><i></i><p>Honorarios</p></span></li>
+      </ul>
+    </nav>
+    <div class="content_box">
+      <div class="main_box" name="desk">
+        <div class="box bgs6" style="width: calc(100% - 30px); height: 250px; display: flex;">
+          <ul class="NavTab s2color">
+            <li id="expi">A Despacho</li>
+            <li id="allExp">Mis Expedientes</li>
+            <li id="exps">Compartidos</li>
+          </ul>
+        </div>
+        <div class="box bgs2" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box bgs3" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box bgs4" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box bgs5" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box bgs6" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+      </div>
+      <div class="main_box" name="exp">
+        <div class="box" style="width: calc(100% - 30px); height: 250px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 630px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 630px"></div>
+      </div>
+      <div class="main_box" name="clients">
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+      </div>
+      <div class="main_box" name="guiaut">
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+      </div>
+      <div class="main_box" name="honorarios">
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 3*(15px))/2); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+        <div class="box" style="width: calc((100% - 4*(15px))/3); height: 150px"></div>
+      </div>
+    </div>
+  </body>
+</html>
